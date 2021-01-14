@@ -1,0 +1,14 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+          - name: Intall Apache2
+            yum: name=httpd state=present
+            notify: Copy File
+          - name: Start Apache
+            service: name=httpd state=started
+            notify: Copy File
+  handlers:
+          - name: Copy File
+            copy: src=noel.txt dest=/tmp/noel.txt   
+

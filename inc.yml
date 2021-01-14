@@ -1,0 +1,7 @@
+- hosts: demo
+  become: yes
+  tasks:
+    - include: includestat.yml
+    - name: verify the httpd is installed
+      shell: yum list --installed| grep httpd > /tmp/result.log
+

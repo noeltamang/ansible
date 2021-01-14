@@ -1,0 +1,10 @@
+
+---
+- hosts: Noel
+  # vars:
+  #       - localname: Noel
+  tasks:
+          - name: Print Name
+            command: echo {{localname}}
+            register: output
+          - debug: var=output
